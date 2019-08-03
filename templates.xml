@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme name="TF2 Turkiye - 2019" version="1815">
+    <properties>
+        <templateset>
+            <![CDATA[20]]>
+        </templateset>
+    </properties>
+    <templates>
+        <template name="fastdl" version="1815"><![CDATA[<html>
+	<head>
+		<title>{$lang->bildirim}{$lang->haritalar} :: {$mybb->settings['bbname']} </title>
+		{$headerinclude}
+		<script>
+			$(function () {
+				$('[data-toggle="popover"]').popover()
+			})
+		</script>
+		<link rel="stylesheet" href="https://tf2turkiye.com/jscripts/fancybox/jquery.fancybox.min.css" type="text/css" media="screen" />
+		<script type="text/javascript" src="https://tf2turkiye.com/jscripts/fancybox/jquery.fancybox.min.js"></script>
+		<script type="text/javascript" src="https://tf2turkiye.com/jscripts/mybbfancybox.js"></script>
+		<script type="text/javascript">
+			<!--
+				MyBBFancybox.setup({
+				clickToEnlarge: "{$lang->mybbfancybox_click_to_enlarge}",
+				CLOSE: "{$lang->mybbfancybox_close}",
+				NEXT: "{$lang->mybbfancybox_next}",
+				PREV: "{$lang->mybbfancybox_prev}",
+				ERROR: "{$lang->mybbfancybox_error}",
+				PLAY_START: "{$lang->mybbfancybox_play_start}",
+				PLAY_STOP: "{$lang->mybbfancybox_play_stop}",
+				FULL_SCREEN: "{$lang->mybbfancybox_full_screen}",
+				THUMBS: "{$lang->mybbfancybox_thumbs}",
+				DOWNLOAD: "{$lang->mybbfancybox_download}",
+				SHARE: "{$lang->mybbfancybox_share}",
+				ZOOM: "{$lang->mybbfancybox_zoom}",
+			});
+			// -->
+		</script>
+	</head>
+	<body<?php echo dark($mybb->user['darkmod']); ?>>
+	{$header}
+	<div class="row">
+		<div class="col-12 col-md-12 mx-auto">
+
+			<form action="" method="post">
+				<div class="container bg-acikturuncu rounded-top shadow-sm p-2">
+					<div class="row vertical-align bg-saydam rounded shadow-sm p-2 mx-0">
+						<div class="col text-left text-white px-0">
+							<i class="fas fa-drafting-compass ml-1 mr-2"></i>{$lang->haritalar}
+						</div>
+
+						<div class="col-5 ml-auto p-0">
+							<button type="button" class="btn btn-sm btn-transparent text-orange float-right" data-toggle="popover" data-html="true" title="{$lang->nasilyapilir}" data-content="{$lang->nasilyapilir_aciklama}"><i class="fas fa-question-circle fz-16"></i></button>
+						</div>
+					</div>
+				</div>
+				<div class="bg-light rounded-bottom px-2 py-2 shadow-sm mb-2">
+					<div class="container px-2">
+
+						<form action="{$mybb->settings['bburl']}/harita/arama" method="get">
+							<div class="row">
+								{$fastdl_row}
+							</div>
+						</form>
+					</div>
+				</div>
+			</form>
+
+			{$pagination}
+
+		</div>
+	</div>
+
+
+	{$footer}
+	</body>
+</html>]]></template>
+		<template name="fastdl_gorsel" version="1815"><![CDATA[<a href="{$file['image']}" data-fancybox="data-{$value}" data-type="image" data-caption="<b>{$lang->harita_adi}</b> {$file['name']}
+(Boyut: {$file['size']})"><img src="{$file['image']}" class="attachment shadow-sm rounded w-100" alt="" title="{$lang->harita_adi} {$file['name']}
+(Boyut: {$file['size']})"></a>]]></template>
+		<template name="fastdl_gorsel_yok" version="1815"><![CDATA[yok]]></template>
+		<template name="fastdl_row" version="1815"><![CDATA[<div class="col-12 col-md-6 col-lg-4 px-2" data-aos="fade-up" data-aos-easing="ease" data-aos-offset="50">
+	<div class="container">
+		<div class="row bg-white opacity rounded shadow-sm mb-2 p-2 text-muted fz-11 vertical-align">
+			<div class="col">
+				<div class="fz-13 text-body">{$file['name']}</div>
+				<div class="fz-12">{$file['size']}</div>
+			</div>
+			<div class="col-3 p-0 m-0 ml-auto">
+				<button type="submit" name="indir" value="{$file['name']}" class="btn btn-primary text-center d-block mx-2 float-right" data-toggle="tooltip" data-placement="bottom" data-original-title="{$lang->indirmekicin}<small class='d-block text-muted'>{$lang->boyut}: {$file['size']}</small>" data-html="true"><i class="fas fa-download"></i></a>
+			</div>
+
+		</div>
+	</div>
+</div>]]></template>
+        <template name="modcp_warninglogs_warning_revoked" version="1400">
+            <![CDATA[<br /><span class="smalltext"><strong>{$lang->revoked}</strong> {$revoked_date}</span>]]></template>
+    </templates>
+</theme>
